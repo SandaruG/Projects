@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Module</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+
+        .login-card {
+            padding: 20px;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-card">
+        <h2 class="text-center">Login</h2>
+        <form id="login-form">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" id="username" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" id="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+            <p id="error-message" class="login-error"></p>
+        </form>
+    </div>
+
+    <script>
+        // Predefined Users
+        const users = [
+            { username: "user1", password: "password123", role: "Registered User" },
+            { username: "guest1", password: "guest123", role: "Guest" },
+            { username: "admin1", password: "admin123", role: "Admin" },
+            { username: "pickup1", password: "pickup123", role: "Pickup Staff" },
+            { username: "delivery1", password: "delivery123", role: "Delivery Staff" },
+        ];
+
+        // Form and Error Message Elements
+        const loginForm = document.getElementById("login-form");
+        const errorMessage = document.getElementById("error-message");
+
+        // Handle Login Form Submission
+        loginForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            // Find matching user
+            const user = users.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                // Redirect based on user role
+                alert(`Welcome ${user.role}! Redirecting to your dashboard...`);
+                switch (user.role) {
+                    case "Registered User":
+                        window.location.href = "registered_user_dashboard.html";
+                        break;
+                    case "Guest":
+                        window.location.href = "guest_dashboard.html";
+                        break;
+                    case "Admin":
+                        window.location.href = "admin_dashboard.html";
+                        break;
+                    case "Pickup Staff":
+                        window.location.href = "pickup_dashboard.html";
+                        break;
+                    case "Delivery Staff":
+                        window.location.href = "delivery_dashboard.html";
+                        break;
+                    default:
+                        alert("Unknown role!");
+                }
+            } else {
+                // Display error message
+                errorMessage.textContent = "Invalid username or password!";
+            }
+        });
+    </script>
+</body>
+
+</html>

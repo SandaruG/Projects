@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Module</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mt-4">Maintenance Module</h1>
+        
+        <!-- System Configuration Section -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h2>System Configuration</h2>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="notification-settings" class="form-label">Notification Settings:</label>
+                        <select class="form-select" id="notification-settings">
+                            <option selected>Enable All Notifications</option>
+                            <option>Disable All Notifications</option>
+                            <option>Custom Notifications</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="business-hours" class="form-label">Set Business Hours:</label>
+                        <input type="time" class="form-control" id="business-hours">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Settings</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- User Management Section -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h2>User Management</h2>
+            </div>
+            <div class="card-body">
+                <h4>Manage Users</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>JohnDoe</td>
+                            <td>Admin</td>
+                            <td><button class="btn btn-warning">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>JaneDoe</td>
+                            <td>Pickup Staff</td>
+                            <td><button class="btn btn-warning">Edit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-success">Add New User</button>
+            </div>
+        </div>
+
+        <!-- System Logs Section -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h2>System Logs</h2>
+            </div>
+            <div class="card-body">
+                <h4>Recent Logs</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Date & Time</th>
+                            <th>Log Message</th>
+                            <th>Action Taken</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-11-26 10:00</td>
+                            <td>System backup initiated</td>
+                            <td>Completed</td>
+                        </tr>
+                        <tr>
+                            <td>2024-11-26 11:30</td>
+                            <td>User login failure - JohnDoe</td>
+                            <td>Admin notified</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-info">View All Logs</button>
+            </div>
+        </div>
+
+        <!-- Maintenance Tasks Section -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h2>Maintenance Tasks</h2>
+            </div>
+            <div class="card-body">
+                <h4>Manage Maintenance Tasks</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Task ID</th>
+                            <th>Task Description</th>
+                            <th>Status</th>
+                            <th>Assigned To</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>101</td>
+                            <td>Database backup</td>
+                            <td>Completed</td>
+                            <td>Admin</td>
+                        </tr>
+                        <tr>
+                            <td>102</td>
+                            <td>System updates</td>
+                            <td>In Progress</td>
+                            <td>Support Staff</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary">Create New Task</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelBuddies Dashboard</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .sidebar {
+            height: 100vh;
+            background-color: #343a40;
+            color: white;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 20px;
+        }
+
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .dashboard-header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .dashboard-header h1 {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2 class="text-center">TravelBuddies</h2>
+            <p class="text-center mb-4">User Role: <span id="user-role">Guest</span></p>
+            <a href="#booking">Booking Module</a>
+            <a href="#tracking">Consignment Tracking</a>
+            <a href="#complaint">Complaint Management</a>
+            <a id="admin-link" href="#report" style="display: none;">Report Module</a>
+            <a id="admin-maintenance" href="#maintenance" style="display: none;">Maintenance Module</a>
+            <a id="pickup-link" href="#pickup" style="display: none;">Pickup Module</a>
+            <a id="delivery-link" href="#delivery" style="display: none;">Delivery Module</a>
+            <a href="#logout">Logout</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="dashboard-header">
+                <h1>Welcome to the Dashboard</h1>
+                <p id="user-greeting">Hello, Guest!</p>
+            </div>
+
+            <!-- Booking Module -->
+            <section id="booking" class="mt-4">
+                <h2>Booking Module</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="pickup-location" class="form-label">Pickup Location:</label>
+                        <input type="text" id="pickup-location" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="drop-location" class="form-label">Drop Location:</label>
+                        <input type="text" id="drop-location" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Book Consignment</button>
+                </form>
+            </section>
+
+            <!-- Consignment Tracking Module -->
+            <section id="tracking" class="mt-4">
+                <h2>Consignment Tracking</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="tracking-id" class="form-label">Enter Tracking ID:</label>
+                        <input type="text" id="tracking-id" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Track Consignment</button>
+                </form>
+            </section>
+
+            <!-- Complaint Management Module -->
+            <section id="complaint" class="mt-4">
+                <h2>Complaint Management</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="complaint-details" class="form-label">Complaint Details:</label>
+                        <textarea id="complaint-details" class="form-control" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Complaint</button>
+                </form>
+            </section>
+
+            <!-- Report Module (Admin Only) -->
+            <section id="report" class="mt-4" style="display: none;">
+                <h2>Report Module</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="report-type" class="form-label">Select Report Type:</label>
+                        <select id="report-type" class="form-select">
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Generate Report</button>
+                </form>
+            </section>
+
+            <!-- Maintenance Module (Admin Only) -->
+            <section id="maintenance" class="mt-4" style="display: none;">
+                <h2>Maintenance Module</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="branch-id" class="form-label">Branch ID:</label>
+                        <input type="text" id="branch-id" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Maintenance</button>
+                </form>
+            </section>
+
+            <!-- Pickup Module (Pickup Staff Only) -->
+            <section id="pickup" class="mt-4" style="display: none;">
+                <h2>Pickup Module</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="pickup-status" class="form-label">Pickup Status:</label>
+                        <input type="text" id="pickup-status" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Pickup</button>
+                </form>
+            </section>
+
+            <!-- Delivery Module (Delivery Staff Only) -->
+            <section id="delivery" class="mt-4" style="display: none;">
+                <h2>Delivery Module</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="delivery-status" class="form-label">Delivery Status:</label>
+                        <input type="text" id="delivery-status" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Delivery</button>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simulate user role for dynamic content (e.g., "Admin", "Pickup Staff", etc.)
+        const userRole = "Admin"; // Change this to test different roles (e.g., "Registered User", "Guest")
+
+        document.getElementById("user-role").textContent = userRole;
+        document.getElementById("user-greeting").textContent = `Hello, ${userRole}!`;
+
+        // Show/hide specific modules based on user role
+        if (userRole === "Admin") {
+            document.getElementById("admin-link").style.display = "block";
+            document.getElementById("admin-maintenance").style.display = "block";
+        } else if (userRole === "Pickup Staff") {
+            document.getElementById("pickup-link").style.display = "block";
+        } else if (userRole === "Delivery Staff") {
+            document.getElementById("delivery-link").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>

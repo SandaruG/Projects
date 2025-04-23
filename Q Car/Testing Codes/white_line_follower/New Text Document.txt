@@ -1,0 +1,19 @@
+digitalWrite(TrigPin, LOW);
+ delayMicroseconds(2);
+ digitalWrite(TrigPin, HIGH);
+ delayMicroseconds(10);
+ digitalWrite(TrigPin, LOW);
+ duration = pulseIn(EchoPin, HIGH);
+distance = duration / 58.2;  
+
+     Serial.print(distance);
+    Serial.println();  
+
+if ( distance < 20 ) {
+ digitalWrite(Bfor,LOW);
+ digitalWrite(Afor,HIGH);
+   digitalWrite(Arev,LOW);
+  digitalWrite(Brev,LOW);
+  delay(200);
+
+ 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Module</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Delivery Module</h1>
+
+        <!-- Delivery Staff Interface -->
+        <div id="delivery-staff">
+            <h2>Your Delivery Assignments</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Consignment ID</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Pending</td>
+                        <td><button class="btn btn-primary">Update Status</button></td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Delivered</td>
+                        <td><button class="btn btn-primary" disabled>Delivered</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Admin Interface for Managing Delivery -->
+        <div id="admin-delivery">
+            <h2>Manage Delivery Assignments</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Staff Name</th>
+                        <th>Delivery Task</th>
+                        <th>Status</th>
+                        <th>Assign/Update</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jane Doe</td>
+                        <td>Consignment 001</td>
+                        <td>Pending</td>
+                        <td><button class="btn btn-warning">Assign</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
